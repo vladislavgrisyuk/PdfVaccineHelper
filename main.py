@@ -55,3 +55,6 @@ async def on_startup(dispatcher):
 
 
 executor.start_polling(dp, on_startup=on_startup, skip_updates=True)
+
+# if __name__ == '__main__':
+#     main()
