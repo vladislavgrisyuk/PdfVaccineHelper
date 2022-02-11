@@ -7,6 +7,8 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from talent import talentS
 import pdfhelper
 import helper
+from replacements import getReplacementsV
+from random import randint
 
 storage = MemoryStorage()
 
@@ -23,34 +25,50 @@ class TalentState(StatesGroup):
     Chosen = State()
 
 
-@dp.message_handler(commands=['reset'])
+@dp.message_handler(commands=['vlad'])
 async def begin(message: types.Message, state: FSMContext):
-    pdfhelper.go('v.pdf')
-    bot.send_document(message.chat.id, document=open('v.result.pdf', 'rb'))
+    pdfhelper.go('v.pdf', getReplacementsV())
+    await bot.send_document(message.chat.id, document=open('v.result.pdf', 'rb'))
 
 
 
-@dp.message_handler(commands=['start'])
+@dp.message_handler(commands=['nastya'])
 async def begin(message: types.Message):
-    await bot.send_message(message.chat.id, '<i>asd</i>', parse_mode='HTML')
-    #await bot.send_document(message.chat.id, document=open('main.py', 'rb'))
-
-
+    r = getReplacementsV()
+    pdfhelper.go('n.pdf', r)
+    await bot.send_document(message.chat.id, document=open('n.result.pdf', 'rb'))
+    
+@dp.message_handler(commands=['all'])
+async def begin(message: types.Message):
+    rSmall = randint(1, 5)
+    rTimeHours = randint(9,11)
+    rTimeMinutes = randint(0,40)
+    time = str(rTimeHours).zfill(2) + ':' + str(rTimeMinutes).zfill(2)
+    timeMinutesPlus = rTimeMinutes + 15
+    timePlus = str(rTimeHours).zfill(2) + ':' + str(timeMinutesPlus).zfill(2)
+    
+    r = getReplacementsV(rTimeHours, rTimeMinutes)
+    pdfhelper.go('n.pdf', r)
+    await bot.send_document(message.chat.id, document=open('n.result.pdf', 'rb'))
+    
+    r = getReplacementsV(rTimeHours, rTimeMinutes + rSmall)
+    pdfhelper.go('v.pdf', r)
+    await bot.send_document(message.chat.id, document=open('v.result.pdf', 'rb'))
 
 
 async def on_startup(dispatcher):
     commands = [
         {
-            "command": "start",
-            "description": "Start using bot"
+            "command": "/nastya",
+            "description": "Certificate for nastya"
         },
         {
-            "command": "help",
-            "description": "Display help"
+            "command": "/vlad",
+            "description": "Certificate for vlad"
         },
         {
-            "command": "calc",
-            "description": "Посчитать силу умельца"
+            "command": "/all",
+            "description": "Both certificates"
         }
     ]
     await bot.set_my_commands(commands)

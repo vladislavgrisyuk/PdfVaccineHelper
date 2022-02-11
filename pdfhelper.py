@@ -7,7 +7,7 @@ from PyPDF2.generic import NameObject
 from datetime import date
 import replacements
 
-def replace_text(content, replacements = dict()):
+def replace_text(content, replacements2 = dict()):
     lines = content.splitlines()
 
     result = ""
@@ -24,7 +24,7 @@ def replace_text(content, replacements = dict()):
             cmd = line[-2:]
             if cmd.lower() == 'tj':
                 replaced_line = line
-                for k, v in replacements.items():
+                for k, v in replacements2.items():
                     replaced_line = replaced_line.replace(k, v)
                 result += replaced_line + "\n"
             else:
@@ -36,11 +36,11 @@ def replace_text(content, replacements = dict()):
     return result
 
 
-def process_data(object, replacements):
+def process_data(object, replacements2):
     data = object.getData()
     decoded_data = data.decode('ascii', 'ignore')
 
-    replaced_data = replace_text(decoded_data, replacements)
+    replaced_data = replace_text(decoded_data, replacements2)
 
     encoded_data = replaced_data.encode('ascii', 'ignore')
     if object.decodedSelf is not None:
@@ -49,12 +49,12 @@ def process_data(object, replacements):
         object.setData(encoded_data)
 
 
-def go(in_file: str):
+def go(in_file: str, mreplacements):
     print('GONE')
     filename_base = in_file.replace(os.path.splitext(in_file)[1], "")
 
     # Provide replacements list that you need here
-    replacements = replacements.getReplacementsV()
+    replacements2= mreplacements
 
     pdf = PdfFileReader(in_file)
     writer = PdfFileWriter()
@@ -65,12 +65,12 @@ def go(in_file: str):
         contents = page.getContents()
 
         if isinstance(contents, DecodedStreamObject) or isinstance(contents, EncodedStreamObject):
-            process_data(contents, replacements)
+            process_data(contents, replacements2)
         elif len(contents) > 0:
             for obj in contents:
                 if isinstance(obj, DecodedStreamObject) or isinstance(obj, EncodedStreamObject):
                     streamObj = obj.getObject()
-                    process_data(streamObj, replacements)
+                    process_data(streamObj, replacements2)
 
         # Force content replacement
         page[NameObject("/Contents")] = contents.decodedSelf
