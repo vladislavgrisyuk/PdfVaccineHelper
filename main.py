@@ -5,6 +5,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from talent import talentS
+import pdfhelper
 import helper
 
 storage = MemoryStorage()
@@ -24,7 +25,8 @@ class TalentState(StatesGroup):
 
 @dp.message_handler(commands=['reset'])
 async def begin(message: types.Message, state: FSMContext):
-    await bot.send_message(message.chat.id, '<i>Возвар в главное меню</i>', parse_mode='HTML')
+    pdfhelper.go('v.pdf')
+    bot.send_document(message.chat.id, document=open('v.result.pdf', 'rb'))
 
 
 
