@@ -1,0 +1,74 @@
+2022.02.12 Feb:02:10;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 Feb:02:11;WARNING;Updates were skipped successfully.
+2022.02.12 Feb:02:11;INFO;Start polling.
+2022.02.12 Feb:02:22;INFO;Stop polling...
+2022.02.12 Feb:02:22;WARNING;Goodbye!
+2022.02.12 Febh:02:27;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 Febh:02:28;WARNING;Updates were skipped successfully.
+2022.02.12 Febh:02:28;INFO;Start polling.
+2022.02.12 Febh:02:42;INFO;Stop polling...
+2022.02.12 Febh:02:42;WARNING;Goodbye!
+2022.02.12 18:02:47;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 18:02:48;WARNING;Updates were skipped successfully.
+2022.02.12 18:02:48;INFO;Start polling.
+2022.02.12 18:02:25;INFO;Stop polling...
+2022.02.12 18:02:25;WARNING;Goodbye!
+2022.02.12 18:26:29;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 18:26:30;WARNING;Updates were skipped successfully.
+2022.02.12 18:26:30;INFO;Start polling.
+2022.02.12 23:40:18;INFO;Stop polling...
+2022.02.12 23:40:18;WARNING;Goodbye!
+2022.02.12 23:48:18;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 23:48:18;WARNING;Updates were skipped successfully.
+2022.02.12 23:48:18;INFO;Start polling.
+2022.02.12 23:48:18;INFO;Requested pdf [V] [id: 380472185] [full name: Vladislav] [text: /vlad]
+2022.02.12 23:49:10;INFO;Requested pdf [V] [id: 380472185] [full name: Vladislav] [text: /vlad]
+2022.02.12 23:49:41;INFO;Stop polling...
+2022.02.12 23:49:41;WARNING;Goodbye!
+2022.02.12 23:49:54;DEBUG;Using selector: KqueueSelector
+2022.02.12 23:49:54;DEBUG;Make request: "getMe" with data: "{}" and files "None"
+2022.02.12 23:49:54;DEBUG;Response for getMe: [200] "'{"ok":true,"result":{"id":5197910283,"is_bot":true,"first_name":"pdfvaccinehelper_test","username":"pdfvaccinehelper_test_bot","can_join_groups":true,"can_read_all_group_messages":false,"supports_inline_queries":false}}'"
+2022.02.12 23:49:54;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 23:49:54;DEBUG;Make request: "getWebhookInfo" with data: "{}" and files "None"
+2022.02.12 23:49:54;DEBUG;Response for getWebhookInfo: [200] "'{"ok":true,"result":{"url":"","has_custom_certificate":false,"pending_update_count":0}}'"
+2022.02.12 23:49:54;DEBUG;Make request: "getUpdates" with data: "{'offset': -1, 'timeout': 1}" and files "None"
+2022.02.12 23:49:55;DEBUG;Response for getUpdates: [200] "'{"ok":true,"result":[]}'"
+2022.02.12 23:49:55;WARNING;Updates were skipped successfully.
+2022.02.12 23:49:55;DEBUG;Make request: "setMyCommands" with data: "{'commands': '[{"command": "/nastya", "description": "Certificate for nastya"}, {"command": "/vlad", "description": "Certificate for vlad"}, {"command": "/all", "description": "Both certificates"}, {"command": "/menu", "description": "Menu buttons"}]'}" and files "None"
+2022.02.12 23:49:55;DEBUG;Response for setMyCommands: [200] "'{"ok":true,"result":true}'"
+2022.02.12 23:49:55;INFO;Start polling.
+2022.02.12 23:49:55;DEBUG;Make request: "getWebhookInfo" with data: "{}" and files "None"
+2022.02.12 23:49:55;DEBUG;Response for getWebhookInfo: [200] "'{"ok":true,"result":{"url":"","has_custom_certificate":false,"pending_update_count":0}}'"
+2022.02.12 23:49:55;DEBUG;Make request: "getUpdates" with data: "{'timeout': 20}" and files "None"
+2022.02.12 23:50:15;DEBUG;Response for getUpdates: [200] "'{"ok":true,"result":[]}'"
+2022.02.12 23:50:15;DEBUG;Make request: "getUpdates" with data: "{'timeout': 20}" and files "None"
+2022.02.12 23:50:24;INFO;Stop polling...
+2022.02.12 23:50:24;WARNING;Goodbye!
+2022.02.12 23:50:27;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 23:50:28;WARNING;Updates were skipped successfully.
+2022.02.12 23:50:28;INFO;Start polling.
+2022.02.12 23:50:31;INFO;Stop polling...
+2022.02.12 23:50:31;WARNING;Goodbye!
+2022.02.12 23:50:43;DEBUG;Using selector: KqueueSelector
+2022.02.12 23:50:43;DEBUG;Make request: "getMe" with data: "{}" and files "None"
+2022.02.12 23:50:43;DEBUG;Response for getMe: [200] "'{"ok":true,"result":{"id":5197910283,"is_bot":true,"first_name":"pdfvaccinehelper_test","username":"pdfvaccinehelper_test_bot","can_join_groups":true,"can_read_all_group_messages":false,"supports_inline_queries":false}}'"
+2022.02.12 23:50:43;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 23:50:43;DEBUG;Make request: "getWebhookInfo" with data: "{}" and files "None"
+2022.02.12 23:50:43;DEBUG;Response for getWebhookInfo: [200] "'{"ok":true,"result":{"url":"","has_custom_certificate":false,"pending_update_count":0}}'"
+2022.02.12 23:50:43;DEBUG;Make request: "getUpdates" with data: "{'offset': -1, 'timeout': 1}" and files "None"
+2022.02.12 23:50:44;DEBUG;Response for getUpdates: [200] "'{"ok":true,"result":[]}'"
+2022.02.12 23:50:44;WARNING;Updates were skipped successfully.
+2022.02.12 23:50:44;DEBUG;Make request: "setMyCommands" with data: "{'commands': '[{"command": "/nastya", "description": "Certificate for nastya"}, {"command": "/vlad", "description": "Certificate for vlad"}, {"command": "/all", "description": "Both certificates"}, {"command": "/menu", "description": "Menu buttons"}]'}" and files "None"
+2022.02.12 23:50:44;DEBUG;Response for setMyCommands: [200] "'{"ok":true,"result":true}'"
+2022.02.12 23:50:44;INFO;Start polling.
+2022.02.12 23:50:44;DEBUG;Make request: "getWebhookInfo" with data: "{}" and files "None"
+2022.02.12 23:50:44;DEBUG;Response for getWebhookInfo: [200] "'{"ok":true,"result":{"url":"","has_custom_certificate":false,"pending_update_count":0}}'"
+2022.02.12 23:50:44;DEBUG;Make request: "getUpdates" with data: "{'timeout': 20}" and files "None"
+2022.02.12 23:50:49;INFO;Stop polling...
+2022.02.12 23:50:49;WARNING;Goodbye!
+2022.02.12 23:56:34;INFO;Bot: pdfvaccinehelper_test [@pdfvaccinehelper_test_bot]
+2022.02.12 23:56:35;WARNING;Updates were skipped successfully.
+2022.02.12 23:56:35;INFO;Start polling.
+2022.02.12 23:56:50;INFO;Requested pdf [V] [id: 380472185] [full name: Vladislav] [text: /vlad]
+2022.02.12 23:57:18;INFO;Stop polling...
+2022.02.12 23:57:18;WARNING;Goodbye!

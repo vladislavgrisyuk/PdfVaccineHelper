@@ -14,13 +14,25 @@ import os
 from dotenv import load_dotenv
 from timeGenerator import generate_with_random_time
 from menu_keyboard import kb
+import logging
+import sys
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s] [%(levelname)s] %(message)s",
+    datefmt='%Y.%m.%d %H:%M:%S',
+    handlers=[
+        logging.FileHandler("debug.log"),
+        logging.StreamHandler()
+    ]
+)
 
 load_dotenv()
 
 storage = MemoryStorage()
 
 token = os.getenv('TOKEN')
-
 
 bot = Bot(token)
 dp = Dispatcher(bot, storage=storage)
@@ -40,6 +52,12 @@ async def begin(message: types.Message, state: FSMContext):
 @dp.message_handler(commands=['vlad'])
 @dp.message_handler(text=['Влад тест'])
 async def begin(message: types.Message, state: FSMContext):
+    log_text = '[requested file]' + \
+        '[id: ' + str(message.from_user.id) + ']' + \
+        '[full name: ' + message.from_user.full_name + ']' + \
+        '[text: ' + message.text + ']'
+
+    logging.info(log_text)
     pdfhelper.go('Resources/v.pdf', get_replacements())
     await bot.send_document(message.chat.id, document=open('Resources/v.result.pdf', 'rb'))
     os.remove('Resources/v.result.pdf')
