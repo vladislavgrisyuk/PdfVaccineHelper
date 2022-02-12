@@ -9,10 +9,14 @@ import pdfhelper
 import helper
 from replacements import getReplacementsV
 from random import randint
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 storage = MemoryStorage()
 
-token = '5014356260:AAExs4--9I4IcNkawOxwrf6fM3xFaidGRiU'
+token = os.getenv('TOKEN')
 
 
 bot = Bot(token)
