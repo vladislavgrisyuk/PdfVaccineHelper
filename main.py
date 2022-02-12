@@ -1,4 +1,3 @@
-from typing import Any
 from aiogram import Bot, Dispatcher, types, executor
 from aiogram.types.message_entity import MessageEntity
 from aiogram.dispatcher import FSMContext

@@ -50,7 +50,6 @@ def process_data(object, replacements2):
 
 
 def go(in_file: str, mreplacements):
-    print('GONE')
     filename_base = in_file.replace(os.path.splitext(in_file)[1], "")
 
     # Provide replacements list that you need here
