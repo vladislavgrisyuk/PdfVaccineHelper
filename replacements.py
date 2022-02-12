@@ -4,7 +4,7 @@ import datetime
 from random import randint
 
 
-def getReplacementsV(h: int = None, m: int = None):
+def get_replacements(h: int = None, m: int = None):
     rSmall = randint(1, 15)
     rSmall2 = randint(1, 4)
     rInt = randint(255234, 999999 - rSmall)
