@@ -1,3 +1,4 @@
+import datetime
 from aiogram import Bot, Dispatcher, types, executor
 from aiogram.types.message_entity import MessageEntity
 from aiogram.dispatcher import FSMContext
@@ -6,10 +7,11 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from talent import talentS
 import pdfhelper
 import helper
-from replacements import getReplacementsV
+from replacements import get_replacement_with_time, getReplacementsV
 from random import randint
 import os
 from dotenv import load_dotenv
+from timeGenerator import generate_with_random_time
 
 load_dotenv()
 
@@ -43,19 +45,25 @@ async def begin(message: types.Message):
     
 @dp.message_handler(commands=['all'])
 async def begin(message: types.Message):
-    rSmall = randint(1, 5)
-    rTimeHours = randint(9,11)
-    rTimeMinutes = randint(0,40)
+    rSmall = randint(2, 5)
+    time_gen = generate_with_random_time(9, 13)
+    rTimeHours = time_gen.hour
+    rTimeMinutes = time_gen.minute
+    
     time = str(rTimeHours).zfill(2) + ':' + str(rTimeMinutes).zfill(2)
+    
+    time_gen_delta = time_gen + datetime.timedelta(minutes=15+rSmall)
     timeMinutesPlus = rTimeMinutes + 15
     timePlus = str(rTimeHours).zfill(2) + ':' + str(timeMinutesPlus).zfill(2)
     
     r = getReplacementsV(rTimeHours, rTimeMinutes)
-    pdfhelper.go('n.pdf', r)
+    r2 = get_replacement_with_time(time_gen, time_gen_delta)
+    pdfhelper.go('n.pdf', r2)
     await bot.send_document(message.chat.id, document=open('n.result.pdf', 'rb'))
     
     r = getReplacementsV(rTimeHours, rTimeMinutes + rSmall)
-    pdfhelper.go('v.pdf', r)
+    r2 = get_replacement_with_time(time_gen + datetime.timedelta(minutes=rSmall), time_gen_delta + datetime.timedelta(minutes=rSmall))
+    pdfhelper.go('v.pdf', r2)
     await bot.send_document(message.chat.id, document=open('v.result.pdf', 'rb'))
 
 
