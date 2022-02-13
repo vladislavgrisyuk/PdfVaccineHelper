@@ -66,6 +66,11 @@ async def begin(message: types.Message, state: FSMContext):
 @dp.message_handler(commands=['nastya'])
 @dp.message_handler(text=['Настя тест'])
 async def begin(message: types.Message):
+    log_text = '[requested file]' + \
+        '[id: ' + str(message.from_user.id) + ']' + \
+        '[full name: ' + message.from_user.full_name + ']' + \
+        '[text: ' + message.text + ']'
+    logging.info(log_text)
     r = get_replacements()
     pdfhelper.go('Resources/n.pdf', r)
     await bot.send_document(message.chat.id, document=open('Resources/n.result.pdf', 'rb'))
@@ -75,6 +80,12 @@ async def begin(message: types.Message):
 @dp.message_handler(commands=['all'])
 @dp.message_handler(text=['Оба теста'])
 async def begin(message: types.Message):
+    log_text = '[requested files]' + \
+        '[id: ' + str(message.from_user.id) + ']' + \
+        '[full name: ' + message.from_user.full_name + ']' + \
+        '[text: ' + message.text + ']'
+
+    logging.info(log_text)
     r_small = randint(2, 5)
     time_gen = generate_with_random_time(9, 13)
     r_time_hours = time_gen.hour
